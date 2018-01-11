@@ -19,9 +19,9 @@ for animal in villagers[1:]:# Skips 0 index (table header)
         image = data[1].find('a', href=True)['href']
         personality = data[2].find('a').get_text()
         species = data[3].find('a').get_text()
-        birthday = data[4].get_text()
-        catchphrase = data[5].get_text()
-        theme = data[6].get_text()
+        birthday = data[4].get_text().strip()
+        catchphrase = data[5].get_text().strip()
+        theme = data[6].get_text().strip()
 
         villager_data.extend([name,image,personality,species,birthday,catchphrase,theme])
 
