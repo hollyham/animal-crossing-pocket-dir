@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 url = 'http://animalcrossing.wikia.com/wiki/Villager_list_(Pocket_Camp)'
 page = requests.get(url)
+page.encoding ="utf-8"
 
 soup = BeautifulSoup(page.content, 'html.parser')
 web_table = soup.find('table', class_='roundy sortable') # Finds villager table
@@ -17,7 +18,7 @@ for animal in villagers[1:]:# Skips 0 index (table header)
     try:
         name = data[0].find('a').get_text() # Name of villager (name is link to villager's wiki)
         image = data[1].find('a', href=True)['href']
-        personality = data[2].find('a').get_text()
+        personality = data[2].find('a').get_text()[2:]
         species = data[3].find('a').get_text()
         birthday = data[4].get_text().strip()
         catchphrase = data[5].get_text().strip()
