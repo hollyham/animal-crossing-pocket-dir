@@ -1,8 +1,11 @@
 # Animal Crossing: Pocket Directory
 
-## About 
+## About
 
 ## Requirements
+
+* Python 3.6.3
+* Beautiful Soup 4
 
 ## License
 
