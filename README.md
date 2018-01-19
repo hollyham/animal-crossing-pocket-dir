@@ -6,6 +6,10 @@
 
 * Python 3.6.3
 * Beautiful Soup 4
+* Requests
+
+* Flask
+* gunicorn web server
 
 ## License
 
