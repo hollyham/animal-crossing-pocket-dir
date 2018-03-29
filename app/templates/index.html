@@ -7,6 +7,7 @@
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/script.js"></script>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
@@ -16,11 +17,20 @@
             <h1>Animal Crossing Pocket Directory</h1>
         </div>
         <div class="selector-container">
-            <select class="selection-box">
-                <option>Select an Option</option>
-                <option value="villagers">Villagers</option>
-                <option value="furniture">Furniture</option>
+            <select id="category-selector" class="selection-box" onchange="buildFilters(this.options[this.selectedIndex].value, {{filters}})">
+                <option>Select a Category</option>
+                {% for category in categories %}
+                    <option value="{{category}}">{{category}}</option>
+                {% endfor %}
             </select>
+            <select id="filter-selector" class="selection-box" onchange="changeButtonStatus(this.options[this.selectedIndex].value)">
+                <option>Select a Filter</option>
+            </select>
+            <br>
+            <button id="button">Get List</button>
+        </div>
+        <div class="container">
+            {% block results %}{% endblock %}
         </div>
     </div>
 </body>

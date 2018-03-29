@@ -5,12 +5,10 @@ html{
 }
 body{
     font-family: "Avenir-Light", "Helvetica Neue", sans-serif;
-    padding: 0;
-    margin: 0;
     text-rendering: optimizeLegibility;
 }
 .container{
-    margin: auto 0;
+    margin: auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -25,6 +23,7 @@ body{
 .selector-container{
     margin: auto;
     width: 50%;
+    text-align: center;
 }
 /*select{
     padding: 5px 8px;
