@@ -1,17 +1,19 @@
 function buildFilters(category, filters){
-	var filter_selector = document.getElementByID("filter-selector");
+	var filter_selector = document.getElementById("filter-selector");
 	if(category == "default"){
 		button.disabled = true;
 		filter_selector.disabled = true;
 	}
 	else{
+		var filter_list = filters["villagers_table"];
 		/* TODO: add statement for choosing different filter sets*/
-		for (var i = 0; i < filters.length; i++) {
-            var currentFilter = filters[i];
+		for (var i = 0; i < filter_list.length; i++) {
+            var currentFilter = filter_list[i];
             var option = document.createElement("option")
             /* TODO: Set value so correct info can be displayed for that filter
             EX: option.setAttribute("value", value);
             */
+            option.setAttribute("value", currentFilter);
             var text = document.createTextNode(currentFilter);
             option.appendChild(text);
 
@@ -23,7 +25,7 @@ function buildFilters(category, filters){
 }
 
 function changeButtonStatus(filter_selected){
-	var button = document.getElementByID("button")
+	var button = document.getElementById("button")
 	if(filter_selected == "default"){
 		button.disabled = true;
 	}

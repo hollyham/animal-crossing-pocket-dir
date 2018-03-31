@@ -25,17 +25,6 @@ body{
     width: 50%;
     text-align: center;
 }
-/*select{
-    padding: 5px 8px;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none
-}
-.select-style select:focus {
-    outline: none;
-}*/
 
 select.selection-box, select#selection-boxw-color {
    -webkit-appearance: button;

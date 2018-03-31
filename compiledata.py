@@ -1,11 +1,14 @@
 import json
 import os
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.engine import reflection
 
 engine = create_engine(os.environ['DATABASE_URL']) # object to communicate with database
 Base = declarative_base(engine)
+metadata = MetaData()
+metadata.reflect(engine)
 
 Session = sessionmaker(bind=engine) # handle to the database
 session = Session()
@@ -30,6 +33,15 @@ for villager in session.query(Villager).all():
 		villagers[villager.type].append(villager.name)
 	else:
 		villagers[villager.type] = [villager.name]
-# create json with dictionary
+
+# Creates dictionary of types of filters for villagers (TODO: Furnitrue and amenities)
+villagers_filters = {}
+for category in metadata.tables.keys():
+	if(category == "villagers_table"):
+		villagers_filters[category] = list(villagers)
+
+# create json files with dictionaries
 with open('static/data/villagers.json', 'w') as file:
 	json.dump(villagers, file)
+with open('static/data/villagers-filters.json', 'w') as file:
+	json.dump(villagers_filters, file)
