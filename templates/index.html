@@ -20,14 +20,14 @@
             <select id="category-selector" class="selection-box" onchange="buildFilters(this.options[this.selectedIndex].value, {{filters}} )">
                 <option>Select a Category</option>
                 {% for category in categories %}
-                    <option value="{{category}}">{{category}}</option>
+                    <option value="{{categories[category]}}">{{category}}</option>
                 {% endfor %}
             </select>
-            <select id="filter-selector" class="selection-box" onchange="changeButtonStatus(this.options[this.selectedIndex].value)">
+            <select disabled id="filter-selector" class="selection-box" onchange="changeButtonStatus(this.options[this.selectedIndex].value)">
                 <option>Select a Filter</option>
             </select>
             <br>
-            <button id="button">Get List</button>
+            <button disabled id="button">Get List</button>
         </div>
         <div class="container">
             {% block results %}{% endblock %}

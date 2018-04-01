@@ -5,8 +5,7 @@ function buildFilters(category, filters){
 		filter_selector.disabled = true;
 	}
 	else{
-		var filter_list = filters["villagers_table"];
-		/* TODO: add statement for choosing different filter sets*/
+		var filter_list = filters[category];
 		for (var i = 0; i < filter_list.length; i++) {
             var currentFilter = filter_list[i];
             var option = document.createElement("option")

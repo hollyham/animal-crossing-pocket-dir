@@ -26,13 +26,14 @@ body{
     text-align: center;
 }
 
-select.selection-box, select#selection-boxw-color {
+select.selection-box {  
    -webkit-appearance: button;
    -webkit-border-radius: 2px;
    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
    -webkit-padding-end: 20px;
    -webkit-padding-start: 2px;
    -webkit-user-select: none;
+   /* If image url is broken, remove url and -webkit-appearance: button; to fix */
    background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
    background-position: 97% center;
    background-repeat: no-repeat;
@@ -47,12 +48,24 @@ select.selection-box, select#selection-boxw-color {
    width: 300px;
 }
 
-select.selection-box-color {
-   color: #fff;
-   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
-   background-color: #779126;
-   -webkit-border-radius: 20px;
-   -moz-border-radius: 20px;
-   border-radius: 20px;
-   padding-left: 15px;
+select.selection-box:disabled {
+  color: #a9a9a9;
+  font-style: italic;
+}
+
+button {
+  background-image: -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  border: 1px solid #AAA;
+  color: #555;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: inherit;
+  margin: 20px;
+}
+
+button:disabled {
+  color: #a9a9a9;
+  font-style: italic;
 }

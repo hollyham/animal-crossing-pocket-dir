@@ -35,13 +35,13 @@ for villager in session.query(Villager).all():
 		villagers[villager.type] = [villager.name]
 
 # Creates dictionary of types of filters for villagers (TODO: Furnitrue and amenities)
-villagers_filters = {}
+filters = {}
 for category in metadata.tables.keys():
 	if(category == "villagers_table"):
-		villagers_filters[category] = list(villagers)
+		filters[category] = list(villagers)
 
 # create json files with dictionaries
 with open('static/data/villagers.json', 'w') as file:
 	json.dump(villagers, file)
-with open('static/data/villagers-filters.json', 'w') as file:
-	json.dump(villagers_filters, file)
+with open('static/data/filters.json', 'w') as file:
+	json.dump(filters, file)
