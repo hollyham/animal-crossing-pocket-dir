@@ -11,6 +11,23 @@
 * Flask
 * gunicorn web server
 
+### Install Dependencies
+
+Use the following command to install dependencies: 
+
+```
+$ pip install -r requirements.txt
+```
+
+## Scrape Data
+
+In the directory with the source files, type 
+
+    ```
+    $ python scrape.py
+    ```
+villagers.csv should be updated with the latest data.
+
 ## License
 
 Copyright 2018 Holly Ham
